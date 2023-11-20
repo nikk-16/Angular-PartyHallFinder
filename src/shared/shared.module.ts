@@ -8,13 +8,13 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { AdminProfileComponent } from './components/admin/admin-profile/admin-profile.component';
 import { OwnerProfileComponent } from './components/owner-profile/owner-profile.component';
+import { UserMessageComponent } from './components/messages/user-message/user-message.component';
+import { OwnerMessagesComponent } from './components/messages/owner-messages/owner-messages.component';
+import { OwnerShowBookingCardComponent } from './components/owner-show-booking-card/owner-show-booking-card.component';
 
 
 @NgModule({
   declarations: [
-  
-    AdminProfileComponent,
-       OwnerProfileComponent
   ],
   imports: [
     CommonModule,

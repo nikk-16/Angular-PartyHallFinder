@@ -73,7 +73,8 @@ export interface Booking {
     guests: number;
     date: string;
     payment: number;
-    paymentId: String;
+    paymentId: string;
+    contact: string;
     paymentStatus: boolean;
     bookingStatus: boolean;
 }

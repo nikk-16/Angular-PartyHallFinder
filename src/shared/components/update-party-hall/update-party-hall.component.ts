@@ -73,8 +73,8 @@ export class UpdatePartyHallComponent {
     this.updateform.valueChanges.subscribe(data => {
       // console.log(data)
     })
-    this.partyService.addPartyHallData(this.id, { ...this.updateform.value }).subscribe((data: any) => {
-      // console.log(data);
+    this.partyService.updatePartyHallData(this.partyHall.partyHallId, { ...this.updateform.value }).subscribe((data: any) => {
+
     });
   }
   

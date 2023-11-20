@@ -42,6 +42,11 @@ import { ShowBookingsDialogComponent } from 'src/shared/components/admin/show-bo
 import { AllOwnersComponent } from 'src/shared/components/admin/all-owners/all-owners.component';
 import { ShowPartyhallDialogComponent } from 'src/shared/components/admin/show-partyhall-dialog/show-partyhall-dialog.component';
 import { ReviewCardComponent } from 'src/shared/components/review-card/review-card.component';
+import { OwnerShowBookingCardComponent } from 'src/shared/components/owner-show-booking-card/owner-show-booking-card.component';
+import { AdminProfileComponent } from 'src/shared/components/admin/admin-profile/admin-profile.component';
+import { OwnerMessagesComponent } from 'src/shared/components/messages/owner-messages/owner-messages.component';
+import { UserMessageComponent } from 'src/shared/components/messages/user-message/user-message.component';
+import { OwnerProfileComponent } from 'src/shared/components/owner-profile/owner-profile.component';
 
 
 
@@ -80,7 +85,12 @@ import { ReviewCardComponent } from 'src/shared/components/review-card/review-ca
     ShowBookingsDialogComponent,
     AllOwnersComponent,
     ShowPartyhallDialogComponent,
-    ReviewCardComponent
+    ReviewCardComponent,
+    OwnerShowBookingCardComponent,
+    AdminProfileComponent,
+       OwnerProfileComponent,
+       UserMessageComponent,
+       OwnerMessagesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<main class="container main w-100 m-5">
+<main class="container w-75">
     <!-- <app-topbar></app-topbar> -->
     <div class="d-flex flex-row align-items-center justify-content-between m-5 pt-5 w-75">
         <h1 class="m-0 col-8 mt-5">Welcome, {{admin.firstName}}</h1>
@@ -6,7 +6,7 @@
             Venue</button> -->
     </div>
     <h1 class="h3 mb-3"><strong>These are the Listed PartyHalls with you.</strong></h1>
-    <div class="row">
+    <div class="row ">
         <div class="col-xl-10 col-xxl-9 d-flex">
             <div class="w-100">
                 <div class="row row-cols-10 border-3 shadow py-3">
@@ -44,7 +44,7 @@
                             </ng-container>
                             <ng-container matColumnDef="bookings">
                                 <mat-header-cell *matHeaderCellDef>Total Amount</mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.bookings[0].total}} </mat-cell>
+                                <mat-cell *matCellDef="let element"> {{element.total/100}} </mat-cell>
                             </ng-container>
                         
                             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

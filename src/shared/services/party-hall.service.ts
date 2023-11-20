@@ -48,8 +48,8 @@ export class PartyHallService {
   filterData(location: any, guests: any, date: any, budget: any):Observable<any> {
     return this.http.get<any>(baseURL + `/filter?location=${location}&guests=${guests}&date=${date}&budget=${budget}`);
   }
-  book( arg1: String, arg2: String, guests: number, payment_id: string, amount: number, date: string) {
-    return this.http.post<any>(baseURL + `/book/bookHall/${arg1}/${arg2}?guests=${guests}&payment_id=${payment_id}&amount=${amount}&date=${date}`, this.httpOptions2)
+  book( arg1: String, arg2: String, guests: number, payment_id: string, amount: number, date: string, phone: number) {
+    return this.http.post<any>(baseURL + `/book/bookHall/${arg1}/${arg2}?guests=${guests}&payment_id=${payment_id}&amount=${amount}&date=${date}&contact=${phone}`, this.httpOptions2)
   }
   getBookingById(id: string): Observable<Booking>{
     return this.http.get<Booking>(baseURL + `/book/getBookingById/${id}`);
@@ -57,6 +57,9 @@ export class PartyHallService {
 
   addPartyHallData(id: string, arg1: any) {
     return this.http.post<any>(baseURL + `/addPartyHall/${id}`, arg1, this.httpOptions);
+  }
+  updatePartyHallData(id: string, arg1: any) {
+    return this.http.post<any>(baseURL + `/update/${id}`, arg1, this.httpOptions);
   }
 
   submitRating(rating: number, pId: string, uId: string): Observable<any> {

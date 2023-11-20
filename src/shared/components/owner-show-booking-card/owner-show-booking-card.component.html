@@ -1,0 +1,20 @@
+<div class="container my-4" style="width: 800px;">
+    <!-- <mat-dialog-header></mat-dialog-header> -->
+   
+    <mat-dialog-content mat-subheader >Booking </mat-dialog-content>
+    
+    <div class="main-timeline card rounded-3 w-100  d-flex align-items-center justify-content-center">
+        <!-- <div class="timeline-icon"><i class="fa fa-globe"></i></div> -->
+        <div class="timeline-content d-flex flex-row flex-wrap w-100">
+            <img [src]="partyHall.images[0]" alt="" width="30%" style="border-radius: 3% 0px 0px 3%;">
+            <div class="crad-title d-flex flex-column flex-wrap justify-content-start align-items-start m-2 ms-4 "  style="width: 65%;">
+                <h2 class="fw-light">{{partyHall.partyHallName}}</h2>
+                <p>Address: {{partyHall.street}}, {{partyHall.city}}, {{partyHall.state}}-{{partyHall.pincode}}</p>
+                <hr class="" style="width: 100%">
+                <h2 class="title card-text ">Booking Id: {{booking.bookingId}}</h2>
+                <p>Booking Date:  <input class="box" type="date" [value]="booking.date"> </p>
+                <p>Payment: <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/rupee.png" alt="rupee"/>{{booking.payment}}<img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/40C057/checkmark--v1.png" alt="checkmark--v1"/> </p>
+            </div>
+        </div>
+    </div>
+</div>

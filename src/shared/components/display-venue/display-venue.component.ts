@@ -163,7 +163,7 @@ export class DisplayVenueComponent {
 
   bookingComplete(amount: number) {
 
-    this.partyHallService.book(this.userId, this.id, this.bookingForm.value.guests, this.paymentId, amount, this.bookingForm.value.date).subscribe((data: any) => {
+    this.partyHallService.book(this.userId, this.id, this.bookingForm.value.guests, this.paymentId, amount, this.bookingForm.value.date, this.bookingForm.value.phone).subscribe((data: any) => {
       this.bookingConfirmed = data as Booking;
       // setTimeout(()=>{
       this.userService.getUserById(this.userId).subscribe((data: User)=>{ console.warn(data); this.userService.setActiveUser(data) });

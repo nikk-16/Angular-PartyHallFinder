@@ -3,9 +3,28 @@
     min-height: 100%;
     width: 100%;
     background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+/* background: radial-gradient(circle, rgba(238,174,202,0.3) 0%, rgba(148,187,233,0.3) 100%); */
+background-color:lavender;
+background: radial-gradient(circle, rgb(240 211 224 / 30%) 0%, rgb(255 255 255) 100%);
+;
+/* background: radial-gradient(circle, rgba(150, 184, 184, 0.2) 0%, rgba(196, 196, 196, 0.41) 100%); */
 }
 .login-btn{
-    background: rgb(63,251,236);
-    background: linear-gradient(171deg, rgba(63,251,236,1) 0%, rgba(252,70,70,0.9473039215686274) 97%);
+    /* background: rgb(63,251,236);
+    background: linear-gradient(171deg, rgba(63,251,236,1) 0%, rgba(252,70,70,0.9473039215686274) 97%); */
+    color:antiquewhite;
+    /* background-color:rgb(241, 202, 171, 0.68); */
+    background-color: #d80666;
+}
+.login-btn:hover{
+    /* background: rgb(63,251,236);
+    background: linear-gradient(171deg, rgba(63,251,236,1) 0%, rgba(252,70,70,0.9473039215686274) 97%); */
+    /* color:antiquewhite; */
+    /* background-color:rgb(255, 255, 255); */
+    box-shadow: 2px 2px 0px 0px  rgb(44, 44, 44);
+    
+    
+}
+mat-card:hover{
+    box-shadow:  0 1rem 3rem rgba(black, .175);
 }

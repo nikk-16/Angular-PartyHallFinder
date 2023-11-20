@@ -1,9 +1,9 @@
-<main class="container w-75 m-5">
-    <p class=" pt-5"></p>   
-    <div class="card d-flex flex-column align-items-start justify-content-around">
+<main class="container w-75" >
+    <p class=" pt-5 mb-5"></p>   
+    <div class="card d-flex flex-column align-items-start justify-content-around ms-5 overflow-hidden ">
         <div class="bg-light d-flex justify-content-center mb-5">
-            <div id="carouselExampleAutoplaying" class="carousel slide w-75" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div id="carouselExampleAutoplaying" class="carousel slide 5" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-top">
                     <div class="carousel-item active">
                         <img [src]="partyHall.images[0]" class="d-bloc" alt="..." width="900" height="700">
                     </div>
@@ -23,32 +23,104 @@
                 </button>
             </div>
         </div>
-        <div class="container my-5">
+        <div class="container my-5 d-flex flex-column justify-content-start">
             <p class="card-title mt-2 fs-2">{{partyHall.partyHallName}}</p>
             <p class="card-text">Ratings: {{partyHall.ratings}}</p>
             <hr class="w">
-            <p class="card-text">Prices: {{partyHall.prices}}</p>
+            <p class="card-text">Prices: <img width="16" height="16"
+                src="https://img.icons8.com/material-rounded/240/rupee.png" alt="rupee" />{{partyHall.prices}}</p>
             <p class="card-text">Capacity: {{partyHall.capacity}}</p>
+            <p class="card-text fs-6 me-4">Address: {{partyHall.street}}, {{partyHall.city}}, {{partyHall.state}}-{{partyHall.pincode}}    &nbsp; &nbsp; (Find on map below)</p>
+            <div class=" card col-8 my-4 container pt-3">
+                <p class="fs-4">Features</p>
+                <hr class="w-100">
+                <p class="fs-6">Amenities</p>
+                <div class="d-flex flex-row justify-content-around flex-wrap">
+                    <div *ngIf="partyHall.features.lawn" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/external-outline-berkahicon/512/external-Lawn-Care-lawn-care-outline-berkahicon-3.png"
+                            alt="external-Lawn-Care-lawn-care-outline-berkahicon-3" />
+                        <p class="mx-2">Lawn</p>
+                    </div>
+                    <div *ngIf="partyHall.features.hall" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/small/512/city-hall.png" />
+                        <p class="mx-2">Hall</p>
+                    </div>
+                    <div *ngIf="partyHall.features.conferenceRoom" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/ios/512/meeting-room.png" />
+                        <p class="mx-2">Conference Room</p>
+                    </div>
+                    <div *ngIf="partyHall.features.poolSide" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/ios-filled/500/outdoor-swimming-pool.png" />
+                        <p class="mx-2">Pool Side</p>
+                    </div>
+                    <div *ngIf="partyHall.features.garden" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/windows/512/house-with-a-garden.png" />
+                        <p class="mx-2">Garden</p>
+                    </div>
+                </div>
+
+
+                <hr class="w-100">
+                <p class="fs-6">Food </p>
+                <div class="d-flex flex-row justify-content-around ">
+                    <div *ngIf="partyHall.features.veg" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/fluency/240/vegetarian-food-symbol.png" />
+                        <p class="mx-2">Veg: <img width="16" height="16"
+                                src="https://img.icons8.com/material-rounded/240/rupee.png" alt="rupee" />
+                            {{partyHall.features.veg}}</p>
+                    </div>
+                    <div *ngIf="partyHall.features.nonVeg" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/fluency/240/non-vegetarian-food-symbol.png" />
+                        <p class="mx-2">Non-Veg: <img width="16" height="16"
+                                src="https://img.icons8.com/material-rounded/240/rupee.png" alt="rupee" />
+                            {{partyHall.features.nonVeg}}</p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
         </div>
-        <div class="container mat-elevation-z8 w-75">
+        <div class="container mat-elevation-z8  mb-5" style="width: 95%;">
             <h1 class="m-3">Bookings</h1>
             <hr class="m-0">
             <!-- <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
               </mat-form-field> -->
             <mat-table #table [dataSource]="dataSource">
+                <ng-container matColumnDef="bookingId">
+                    <mat-header-cell *matHeaderCellDef>BookingId ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.bookingId}} </mat-cell>
+                  </ng-container>
                 <ng-container matColumnDef="userId">
                   <mat-header-cell *matHeaderCellDef>USER ID</mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="contact">
+                    <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.contact}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="date">
                   <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
                 </ng-container>
+                <ng-container matColumnDef="payment">
+                    <mat-header-cell *matHeaderCellDef>Payment</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.payment/100}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="view">
+                    <mat-header-cell *matHeaderCellDef>View More</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> <button class="btn booking-btn w-50 " style="font-size: small;" (click)="viewBooking(element)">View Booking</button> </mat-cell>
+                </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
               </mat-table>
-
+    
         </div>
     </div>
 </main>
