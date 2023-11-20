@@ -1,0 +1,60 @@
+<!-- <p>list-venues works!</p> -->
+<!-- <app-navbar></app-navbar> -->
+<div class="d-flex flex-column flex-wrap justify-content-center" style="padding-top:15%; padding-bottom: 5%;">
+    <header class="d-flex flex-column align-items-center mb-5" style="font-family: 'Josefin Sans', sans-serif;">
+        <p class="text-center fs-1" style="font-family: 'Josefin Sans', sans-serif;">Party Halls</p>
+        <hr class="w-75">
+    </header>
+    <div class="d-flex flex-row justify-content-center flex-wrap">
+        <aside class="col-2 d-flex flex-column border rounded me-3 align-items-start justify-content-center fixed p-3"
+            style="height: fit-content;">
+            <h1 class="m-0">Filter</h1>
+            <hr class="" style="width: 100%;">
+            <form action="" [formGroup]="filterForm" (ngSubmit)="onSubmit($event)" class="w-100">
+            <div class="d-flex flex-column flex-wrap align-items-start justify-content-start w-100">
+                    <div class="w-100">
+                        <label for="location" class="fs-6 py-2 me-3">Location:</label>
+                        <input class="box w-50 " type="form-control" formControlName="location" name="location" placeholder="eg: Kanpur">
+                        <!-- <button class="btn booking-btn my-3 p-1" type="submit" style="font-size: small;">Check Availability</button> -->
+                        <hr class=" " style="width: 100%;">
+                    </div>
+                    <!-- <div> -->
+                        <label for="date" class="fs-5 me-4">Guests:</label>
+                        <span><input type="radio" name="guests" id="" class="radio-filter m-2" formControlName="guests" value="100">50-100</span>
+                        <span><input type="radio" name="guests" id="" class="radio-filter m-2" formControlName="guests" value="200">100-200</span>
+                        <span><input type="radio" name="guests" id="" class="radio-filter m-2" formControlName="guests" value="300">200-300</span>
+                        <span><input type="radio" name="guests" id="" class="radio-filter m-2" formControlName="guests" value="500">300-500</span>
+                        <hr class="" style="width: 100%;">
+                    <!-- </div> -->
+                    <div class="w-100">
+                        <label for="date" class="fs-5 py-2 me-3">Date:</label>
+                        <input class="box w-50" type="date" id="date" formControlName="date" name="date">
+                        
+                        <hr >
+                    </div>
+                    <div class="d-flex flex-row flex-wrap align-items-center">
+                        <label for="customRange1" class="form-label fs-5 me-4">Budget:</label>
+                        <span><textarea name="budget" id="budget" class="box text-center text-muted" cols="10"
+                                rows="1" [value]="value"></textarea></span>
+                        <input type="range" class="form-range" min="5000" max="50000" [value]="value" formControlName="budget" (ngModelChange)="getRange($event)" id="customRange1">
+                        <!-- <button class="btn booking-btn my-3 p-1" type="submit" style="font-size: small;">Check Availability</button> -->
+                        <hr class=" hrw m-0 p-2" style="width: 100%;">
+                    </div>
+                    <button class="btn booking-btn my-3 p-1" type="submit" style="font-size: small;">Apply
+                        Filter</button>
+                </div>
+            </form>
+
+        </aside>
+
+        <section class="col-6 border rounded ">
+            <div class="d-flex flex-column flex-wrap align-items-center justify-content-center py-2"
+                *ngFor="let partyHall of partyHalls">
+                <app-venue-detail-card [venue]="partyHall" class="m-2  flex-wrap"
+                    style="width:95%"></app-venue-detail-card>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- <div style="height:75vh"></div> -->
+<!-- <app-footer></app-footer> -->

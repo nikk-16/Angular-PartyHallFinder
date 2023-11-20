@@ -1,0 +1,24 @@
+
+
+
+<main class="container w-75 m-5">
+    <!-- <app-topbar></app-topbar> -->
+    <div class="d-flex flex-row align-items-center justify-content-between m-5 pt-5">
+        <h1 class="m-0 col-8">Welcome, {{owner.firstName!}}</h1>
+        <button class="btn booking-btn mt-4" style="width: 15%; height: 5%;" type="submit" (click)="addPartyHall()">Add Venue</button>
+    </div>
+    <h1 class="h3 mb-3"><strong>Listed PartyHall</strong></h1>
+    <div class="row">
+        <div class="col-xl-7 col-xxl-5 d-flex">
+            <div class="w-100">
+                <div class="row row-cols-8">
+                    <div *ngIf="partyHalls?.length== 0">Oops! You have no partyHalls listed Here with us!</div>
+                    <div class="col-12" *ngFor="let partyHall of partyHalls">
+                        <app-owner-venue-detail-card [venue]="partyHall" class="w-100"></app-owner-venue-detail-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<router-outlet></router-outlet>

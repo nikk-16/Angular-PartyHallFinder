@@ -1,0 +1,45 @@
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar js-sidebar collapse bg-secondary pt-5 mt-5">
+    
+        <img src="https://loremflickr.com/480/480/people" alt="" class="mt-5 ms-5 border-3 rounded-circle" height="150" width="150">
+        <div class="list-group list-group-flush mx-3 mt-3 rounded sidebar-content js-simplebar">
+            <a routerLink="home" [class.active]="selectedItem === 'dashboard'" class="list-group-item list-group-item-action py-2 active"   
+            (click)="selectItem('dashboard')">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Home</span>
+            </a>
+            <a routerLink="users" class="list-group-item list-group-item-action py-2 "  [class.active]="selectedItem === 'users'" 
+            (click)="selectItem('users')">
+                <i class="fas fa-users fa-fw me-3"></i><span>Users</span>
+            </a>
+            <a routerLink="partyHalls" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'updatePartyHall'" 
+            (click)="selectItem('updatePartyHall')"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>Party Halls</span></a>
+            <a routerLink="owners" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'owners'" 
+                (click)="selectItem('owners')"><i
+                        class="fas fa-business-time fa-fw me-3"></i><span>Owners</span></a>
+            <a routerLink="profile" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'profile'" 
+            (click)="selectItem('profile')"><i
+                    class="fas fa-business-time fa-fw me-3"></i><span>Profile</span></a>
+            
+        </div>
+    
+</nav>
+<!-- <nav id="sidebarMenu" class="collapse d-lg-block sidebar js-sidebar collapse bg-secondary pt-5 ">
+
+        <img src="https://loremflickr.com/480/480/people" alt="" class="mt-5 ms-5 border-3 rounded-circle" height="150" width="150">
+        
+        <div class="list-group list-group-flush mx-3 mt-3 rounded sidebar-content js-simplebar">
+            <a routerLink="home" class="list-group-item list-group-item-action py-2 ripple "  [class.active]="selectedItem === 'home'" 
+            (click)="selectItem('home')" aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
+            </a>
+            <a routerLink="users" class="list-group-item list-group-item-action py-2 ripple"  [class.active]="selectedItem === 'users'" 
+            (click)="selectItem('users')">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Users</span>
+            </a>
+            <a [routerLink]="['updatePartyHall', id]" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'updatePartyHall'" 
+            (click)="selectItem('updatePartyHall')"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>All Bookings</span></a>
+            
+        </div>
+  
+</nav> -->

@@ -1,0 +1,48 @@
+<main class="container main w-100 m-5">
+    <!-- <app-topbar></app-topbar> -->
+    <div class="d-flex flex-row align-items-center justify-content-between m-5 pt-5 w-75">
+        <!-- <h1 class="m-0 col-8">Welcome, {{admin.firstName}}</h1> -->
+        <!-- <button class="btn booking-btn mt-4" style="width: 15%; height: 5%;" type="submit" (click)="addPartyHall()">Add
+            Venue</button> -->
+    </div>
+    <h1 class="h3 mb-3"><strong>These are the Listed Owners with you.</strong></h1>
+    <div class="row">
+        <div class="col-xl-12 col-xxl-9 d-flex">
+            <div class="w-100">
+                <div class="row row-cols-15 border-3 shadow py-3">
+                    <div class="container container-fluid ">
+                        <h1 class="m-3">Owners</h1>
+                        <hr class="m-0">
+                        <mat-table #table [dataSource]="dataSource">
+                            <ng-container mat-sort matColumnDef="userId" class="col-3">
+                                <mat-header-cell *matHeaderCellDef>User Id</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}}
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="email">
+                                <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="phone">
+                                <mat-header-cell *matHeaderCellDef>Phone No.</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="partyHalls" class="col-1">
+                                <mat-header-cell *matHeaderCellDef>Party Halls</mat-header-cell>
+                                <mat-cell *matCellDef="let element"><button class="btn booking-btn" (click)="openDialog(element)">View</button></mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</main>

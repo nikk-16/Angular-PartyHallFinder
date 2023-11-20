@@ -1,0 +1,44 @@
+<!-- 
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar js-sidebar collapse bg-secondary pt-5 ">
+    
+        <img src="https://loremflickr.com/480/480/people" alt="" class=" mt-5 ms-5 border-3 rounded-circle" height="150" width="150">
+        
+        <div class="list-group list-group-flush mx-3 mt-3 rounded sidebar-content js-simplebar">
+            <a routerLink="dashboard" class="list-group-item list-group-item-action py-2 "  [class.active]="selectedItem === 'dashboard'" 
+            (click)="selectItem('dashboard')" aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+            </a>
+            <a routerLink="addPartyHall" class="list-group-item list-group-item-action py-2 "  [class.active]="selectedItem === 'addPartyHall'" 
+            (click)="selectItem('addPartyHall')">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Hall</span>
+            </a>
+            <a [routerLink]="['updatePartyHall', id]" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'updatePartyHall'" 
+            (click)="selectItem('updatePartyHall')"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>All Bookings</span></a>
+            
+        </div>
+</nav> -->
+
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar js-sidebar collapse bg-secondary pt-5 mt-5">
+    <!-- <div class="position-sticky"> -->
+        <img src="https://loremflickr.com/480/480/people" alt="" class="mt-5 ms-5 border-3 rounded-circle" height="150" width="150">
+        <div class="list-group list-group-flush mx-3 mt-3 rounded sidebar-content js-simplebar">
+            <a routerLink="dashboard" class="list-group-item list-group-item-action py-2 "  [class.active]="selectedItem === 'dashboard'" 
+            (click)="selectItem('dashboard')" aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main Dashboard</span>
+            </a>
+            <a routerLink="addPartyHall" class="list-group-item list-group-item-action py-2 "  [class.active]="selectedItem === 'addPartyHall'" 
+            (click)="selectItem('addPartyHall')">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Hall</span>
+            </a>
+            <a [routerLink]="['updatePartyHall', id]" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'updatePartyHall'" 
+            (click)="selectItem('updatePartyHall')"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>All Bookings</span></a>
+            <a [routerLink]="['profile']" class="list-group-item list-group-item-action py-2 ripple " [class.active]="selectedItem === 'profile'" 
+            (click)="selectItem('profile')"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>Profile</span></a>
+            
+        </div>
+    <!-- </div> -->
+</nav>
+<!-- Sidebar -->

@@ -1,0 +1,18 @@
+<div class="card  d-flex flex-row p-0 m-3" style="width: 900px;">
+    <div class="image m-0 p-0" style="width: 40%;">
+        <img [src]="imgURL" alt=""  class="rounded-x" style="border-radius: 2% 0px 0px 2%; width:90%; height:250px; min-width: 180px">
+    </div>
+    <div class="d-flex flex-column flex-wrap justify-content-start p-0" style="width: 50%">
+        <h1 class="card-title mt-2">{{venue.partyHallName}}</h1>
+        <p class="card-text">Ratings: {{venue.ratings}}</p>
+        <hr class="w">
+        <p class="card-text">Prices: {{venue.prices}} / person</p>
+        <p class="card-text">Capacity: {{venue.capacity}}</p>
+        <div class="d-flex flex-row ">
+            <button class="btn booking-btn p-1 mx-4" type="submit" (click)="openVenue()">View Bookings</button>
+            <button class="btn booking-btn p-1 mx-4" type="submit" (click)="update()">Edit</button>
+        </div>
+        <!-- <p class="card-text">{{venue.prices}}</p> -->
+    </div>
+
+</div>

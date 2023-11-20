@@ -1,0 +1,46 @@
+<!-- <app-navbar></app-navbar> -->
+<!-- <p>user-profile works!</p> -->
+<!-- <div style="height: 50vh;"></div>
+<p>profile</p> -->
+<div class="d-flex flex-column flex-wrap justify-content-center" style="padding-top:15%; ;">
+    <header class="d-flex flex-column align-items-center" style="font-family: 'Josefin Sans', sans-serif;">
+        <p class="text-center fs-1" style="font-family: 'Josefin Sans', sans-serif;">Hello {{adminDetails.firstName}}!</p>
+        <hr class="w-75">
+    </header>
+</div>
+<div class="how-section1  d-flex flex-column align-items-center  justify-content-center">
+    <div class="card">
+      <div class="card-body">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-4">
+            <img src="https://th.bing.com/th/id/OIP.iTBsL_7e2j3qrItJRr9_UAAAAA?pid=ImgDet&rs=1" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+            <h5 class="card-title text-center mb-4 fs-4">Admin Details</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="font-weight-bold  mr-2">Name:</span>
+                {{adminDetails.firstName}} {{adminDetails.lastName}}
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold mr-2">Age:</span>
+                {{age}}
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold mr-2">Email:</span>
+                {{adminDetails.email}}
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold mr-2">Phone:</span>
+                {{adminDetails.phone}}
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold mr-2">DOB:</span>
+                {{adminDetails.dob.split('T')[0]}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

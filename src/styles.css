@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "node_modules/primeng/resources/themes/lara-light-blue/theme.css"; */
+@import 'node_modules/@syncfusion/ej2-base/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-angular-base/styles/material.css';
+@import 'node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
+
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Josefin Sans', Roboto, "Helvetica Neue", sans-serif; }
+body {
+    font-family: var(--font-family);
+    font-weight: normal;
+    background: var(--surface-ground);
+    color: var(--text-color);
+    /* padding: 1rem; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.card-title{
+    font-family: 'Josefin Sans';
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+.landing-pg-card h1{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* .card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transform: translate3d(0%, 250px, 0px);
+    z-index: 2;
+} */
+
+.front-img{
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+
+.landing-pg-card
+{
+    padding: 3rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    width: 50vw;
+    min-width: 280px;
+    overflow: hidden;
+    position:relative;
+    box-shadow: 0 0 1rem rgba(0,0,0,.15);
+    left: 25vw;
+    top: 45vh;
+    background-color: rgba(231, 225, 228, 0.7);
+    backdrop-filter: blur(2px);
+
+    transform: translate3d(-60%px, 0px, 0px);
+    transition: linear 0.4s;
+    opacity: 1 !important;
+    z-index: 2;
+}
+
+.navbars{
+    background-color: rgba(214, 99, 158, 0.46);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+    
+}
+
+.booking-btn{
+    background-color: #d80666;
+    /* border-color: #bfb0b1; */
+    color: antiquewhite;
+    padding: 1.5%;
+    width: 100%;
+    min-width: 100px;
+}
+.booking-btn:hover{
+    background-color: #d80666;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+    color: antiquewhite;
+    /* border:5px; */
+}
+
+.box{
+    height: 35px;
+    border: 2px solid rgba(96, 45, 70, 0.231);
+    border-radius: 5px;
+}
+
+.checkbox-filter{
+    margin: 8px;
+    color: #d80666;
+}
+    
+
+
+
+
+@media (min-width: 991.98px) {
+    main {
+    padding-left: 240px;
+    }
+    }
+    
+    /* Sidebar */
+    .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+    }
+    
+    @media (max-width: 991.98px) {
+    .sidebar {
+    width: 100%;
+    }
+    }
+    .sidebar .active {
+    background-color: #d80666;
+    
+    /* border-radius: 5px; */
+    box-shadow: 0 2px 5px 0 rgba(243, 241, 241, 0.16), 0 2px 10px 0 rgba(244, 244, 244, 0.12);
+    }
+    
+    .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    /* background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+}

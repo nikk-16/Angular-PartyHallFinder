@@ -1,0 +1,177 @@
+<section [ngClass]="{'main':true, 'main-active':main}">
+    <a routerLink="/" class="btn main-cancel-btns rounded" (click)="toggleSidebar()"
+        [ngClass]="{'main':true, 'main-active':sideLogin}">
+        <i class="fas fa-times"></i>
+    </a>
+
+    <div class="main-img">
+        <img *ngIf="params === 'user'" src="https://th.bing.com/th/id/OIP.iTBsL_7e2j3qrItJRr9_UAAAAA?pid=ImgDet&rs=1" />
+        <img *ngIf="params === 'owner'" src="https://img.icons8.com/bubbles/500/administrator-male.png" alt="">
+        <img *ngIf="params === 'admin'" src="https://img.icons8.com/bubbles/500/system-administrator-male.png" alt="">
+    </div>
+
+    <div class="text-btns">
+        <p *ngIf="params == 'user'">Hello User! Please Login to enter our website where you'll find best Partyhalls at very reasonable prices.</p>
+        <p *ngIf="params == 'admin'">Hello Admin, Please Login to your Admin Dashboard.</p>
+        <p *ngIf="params == 'owner'">You own a Partyhall? </p>
+        <p *ngIf="params == 'owner'">Then you arrived at a perfect destination where you can have access to millions of customers accessing this application and take you business to next level.</p>
+    
+
+        <div class="btns">
+            <a class="login-btn" (click)="toggleSignin()">Login</a>
+            <a class="sign-up-btn" (click)="toggleSignup()">Sign Up</a>
+        </div>
+
+        <!--login-with-social-media------------>
+        <span>Or Via Social Media</span>
+        <div class="via-social">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-google"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+
+
+    <!--side-login-bar----------------------------------------->
+
+    <div [ngClass]="{'side-login':true, 'side-login-active':sideLogin, 'rounded':true}">
+        <a class="rounded login-cancel-btn" (click)="toggleSignin()">
+            <i class="fas fa-times"></i>
+        </a>
+        <strong>Sign In</strong>
+        <form [formGroup]="signinForm" (ngSubmit)="onLoginSubmit()">
+            <label>Email<samp>*</samp></label>
+            <div class="email">
+                <i class="far fa-paper-plane px-3"></i>
+                <input type="email" class="form-control" formControlName="email" placeholder="Your email address"
+                    [ngClass]="{ 'is-valid': (f.email.dirty || submitted) && !f.email.errors, 'is-invalid': (f.email.dirty ||
+            submitted) && f.email.errors }" />
+                <div class="invalid-feedback" *ngIf="requiredValid">
+                    <span class="text-danger"
+                        *ngIf="f.email.errors?.['required'] || f.email.dirty || f.email.touched">Email address is
+                        required</span>
+                    <span class="text-danger"
+                        *ngIf="f.email.errors?.['email'] || f.email.dirty || f.email.touched">Email address is not
+                        valid</span>
+                </div>
+            </div>
+            <label>Password<samp>*</samp></label>
+            <div class="password">
+                <i class="fas fa-lock px-3"></i>
+                <!-- <input type="password" formControlName="password" required> -->
+                <input type="password" class="form-control" formControlName="password" name="password"
+                    placeholder="Choose a password"
+                    [ngClass]="{ 'is-valid': (f.password.dirty || submitted) && passwordValid, 'is-invalid': (f.password.dirty || submitted) && !passwordValid }" />
+
+                <div class="invalid-feedback mt-0 pt-0">
+                    <span class="text-danger" *ngIf="(f.password.dirty || submitted) && !requiredValid">Password is
+                        required</span>
+                </div>
+            </div>
+            <div id="validation-rules" class="" *ngIf="requiredValid">
+                <!-- minlength -->
+                <div
+                    [ngClass]="{ 'text-success': [minLengthValid, requiresDigitValid, requiresUppercaseValid, requiresLowercaseValid, requiresSpecialCharsValid], 'text-danger': [!minLengthValid, !requiredValid, !requiresDigitValid, !requiresLowercaseValid, !requiresSpecialCharsValid, !requiresUppercaseValid]}">
+                    Must Contain min 8 characters, 1 smallCase, 1 uppercase, 1 digit and 1 special character
+                </div>
+
+            </div>
+            <input type="submit" name="login" class="login" value="Login">
+            <a href="#" class="forget">Forget Your Password?</a>
+        </form>
+    </div>
+
+
+
+    <!--side-sign-up-bar----------------------------------------->
+
+    <div [ngClass]="{'side-sign-up':true, 'side-sign-up-active':sideSignup}">
+        <a class="rounded sign-up-cancel-btn" (click)="toggleSignup()">
+            <i class="fas fa-times"></i>
+        </a>
+        <strong>Sign Up</strong>
+
+        <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+            <label>First Name<samp>*</samp></label>
+            <div class="name">
+                <i class="far fa-copy"></i>
+                <input type="text" name="fullname" formControlName="firstName" required>
+            </div>
+            <label>Last Name<samp>*</samp></label>
+            <div class="name">
+                <i class="far fa-copy"></i>
+                <input type="text" name="fullname" formControlName="lastName" required>
+            </div>
+
+            <label>Email<samp>*</samp></label>
+            <div class="email">
+                <i class="far fa-paper-plane"></i>
+                <input type="email" class="form-control" formControlName="email" required>
+            </div>
+            <div
+                *ngIf="signupForm.get('email')?.errors && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
+                <small class="form-text text-danger" *ngIf="signupForm.get('email')?.errors?.['required']">
+                    Email is required
+                </small>
+                <small class="form-text text-danger" *ngIf="signupForm.get('email')?.errors?.['email']">
+                    Email must be a valid email address
+                </small>
+            </div>
+            <label>Password<samp>*</samp></label>
+            <div class="password">
+                <i class="fas fa-lock"></i>
+                <input type="password" formControlName="password" required>
+            </div>
+            <div
+                *ngIf="signupForm.get('password')?.errors && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['required']">
+                    Password is required
+                </p>
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['minlength']">
+                    Password must be at least 8 characters long
+                </p>
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['hasNumber']">
+                    Password must contain a number
+                </p>
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['hasCapitalCase']">
+                    Password must have at least one uppercase character
+                </p>
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['hasSmallCase']">
+                    Password must have at least one lowercase character
+                </p>
+                <p class="form-text text-danger m-0" *ngIf="signupForm.get('password')?.errors?.['hasSpecialCharacters']">
+                    Password must have at least one special character
+                </p>
+            </div>
+            <label>Phone<samp>*</samp></label>
+            <div class="email">
+                <i class="fa fa-phone"></i>
+                <input type="phone" class="form-control" formControlName="phone" required>
+            </div>
+            <div
+                *ngIf="signupForm.get('phone')?.errors && (signupForm.get('phone')?.touched || signupForm.get('phone')?.dirty)">
+                <small class="form-text text-danger" *ngIf="signupForm.get('phone')?.errors?.['required']">
+                    Phone no. is required
+                </small>
+            </div>
+            <label>Date of Birth<samp>*</samp></label>
+            <div class="email">
+                <i class="fa fa-calendar"></i>
+                <input type="date" class="form-control" formControlName="dob" required>
+            </div>
+            <div
+                *ngIf="signupForm.get('dob')?.errors && (signupForm.get('dob')?.touched || signupForm.get('dob')?.dirty)">
+                <small class="form-text text-danger" *ngIf="signupForm.get('dob')?.errors?.['required']">
+                    Date of Birth is required
+                </small>
+            </div>
+            <input type="submit" name="login" class="sign-up" value="Sign Up">
+        </form>
+
+
+    </div>
+
+ 
+</section>
+<router-outlet></router-outlet>

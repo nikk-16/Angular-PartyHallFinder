@@ -1,0 +1,186 @@
+<!-- <div class="row">
+    <div class="col">
+        <div class="form-outline">
+            <input type="text" id="form8Example1" class="form-control" />
+            <label class="form-label" for="form8Example1">Name</label>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-outline">
+            <input type="email" id="form8Example2" class="form-control" />
+            <label class="form-label" for="form8Example2">Email address</label>
+        </div>
+    </div>
+</div>
+
+<hr /> -->
+
+<form [formGroup]="addForm" (ngSubmit)="addToDatabase()" class="m-5">
+    <div class=" row m-5 " style="padding-top: 10%;">
+        <h1>Add Hall Details:</h1>
+        <div class="col">
+            <!-- Name input -->
+            <div class="form-outline">
+                <input type="text" id="form8Example3" class="form-control" formControlName="partyHallName" />
+                <label class="form-label" for="form8Example3">Party Hall Name</label>
+            </div>
+        </div>
+        <div class="col">
+            <!-- Name input -->
+            <div class="form-outline">
+                <input type="number" id="form8Example4" class="form-control" formControlName="capacity" />
+                <label class="form-label" for="form8Example4">Capacity</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="email" id="form8Example5" class="form-control" formControlName="prices" />
+                <label class="form-label" for="form8Example5">Prices</label>
+            </div>
+        </div>
+        <hr>
+        <h3>Address</h3>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="street" />
+                <label class="form-label" for="form8Example5">Street</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="city" />
+                <label class="form-label" for="form8Example5">City</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="state" />
+                <label class="form-label" for="form8Example5">State</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" id="form8Example5" class="form-control" formControlName="zip" />
+                <label class="form-label" for="form8Example5">Zip</label>
+            </div>
+        </div>
+        <hr>
+        <h3>Features</h3>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="Hall" value="Hall" formControlName="hall" />
+                <label class="form-label" for="Hall">Hall</label>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="Comference" value="Conference " formControlName="conferenceRoom" />
+                <label class="form-label" for="form8Example5">Conference Room</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Pool" formControlName="poolSide" />
+                <label class="form-label" for="form8Example5">Pool Side</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Lawn" formControlName="lawn" />
+                <label class="form-label" for="form8Example5">Lawn</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Garden" formControlName="garden" />
+                <label class="form-label" for="form8Example5">Garden</label>
+            </div>
+        </div>
+
+        <div class="col-4 d-flex flex-row">
+            <div class="form-outline mx-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="veg" />
+                <label class="form-label" for="form8Example5">Veg Prices</label>
+            </div>
+            <div class="form-outline mx-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="nonVeg" />
+                <label class="form-label" for="form8Example5">Non-veg Prices</label>
+            </div>
+        </div>
+        <hr>
+        <div class="col-12 d-flex flex-row">
+            <h3>Add High quality images</h3>
+            <div class="form-outline mx-3">
+                <input type="text" id="form8Example5" class="form-control" formControlName="imageLink1" />
+                <label class="form-label" for="form8Example5">Link to Image 1</label>
+            </div>
+            <div class="form-outline mx-3">
+                <input type="text" id="form8Example5" class="form-control" formControlName="imageLink2" />
+                <label class="form-label" for="form8Example5">Link to Image 2</label>
+            </div>
+        </div>
+        <hr>
+        <div class="col-12 d-flex flex-row">
+            <div class="form-outline mx-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="latitudes" />
+                <label class="form-label" for="form8Example5">Latitudes</label>
+            </div>
+            <div class="form-outline ms-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="longitudes" />
+                <label class="form-label" for="form8Example5">Longitudes</label>
+            </div>
+            <a href="https://www.latlong.net/" class="ms-5 col-4">
+            Get latitudes and longitudes here <img width="40" height="40" src="https://img.icons8.com/bubbles/100/place-marker.png" alt="place-marker"/></a>
+        </div>
+        <button class="btn booking-btn mt-2 p-1 col-1 mb-5" type="submit" (click)="addToDatabase()">Add Hall</button>
+    </div>
+</form>
+
+
+<!-- {
+  "partyHallId": "655546101942c12381cc7254",
+    "ownerId": "654d97a9867a39725c60e5a5",
+    "partyHallName": "5th party hall",
+    "capacity": 300,
+    "prices": 1100.0,
+    "pincode": 500081,
+    "state": "telangana",
+    "city": "hyderabad",
+    "street": "road no 35, ayyappa society",
+    "features": {
+      "hall": null,
+      "conferenceRoom": null,
+      "lawn": null,
+      "poolSide": null,
+      "garden": null,
+      "veg": null,
+      "nonVeg": null,
+      "restaurant": true,
+      "bar": true,
+      "openDecorators": true,
+      "inHouseDecorators": false
+    },
+    "bookedDates": [
+      {
+        "date": "2023-11-23",
+        "partyHallId": "655546101942c12381cc7254",
+        "userId": "6551db2efdd0c1e2830b52da"
+      }
+    ],
+    "reviews": {
+      "reviewId": null,
+      "partyHallId": null,
+      "userId": null,
+      "rating": null,
+      "time": null,
+      "reviewText": null,
+      "replies": null
+    },
+    "bookings": [],
+    "images": [
+      "https://i.pinimg.com/originals/72/1b/6a/721b6aa40cde82b1a6dd9f504dbf63e7.jpg",
+      "https://media.weddingz.in/images/ea44a1cf81962585295fdc5ea310538d/mishra-marriage-lawn-mishra-marriage-lawn-1.jpg"
+    ],
+    "ratings": 0.0
+  } -->

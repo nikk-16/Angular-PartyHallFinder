@@ -1,0 +1,29 @@
+<div>
+<img src="https://th.bing.com/th/id/R.062b8e00924c8e8085283290f203766a?rik=ANPVe%2bK1z9SiXA&riu=http%3a%2f%2fhotelsilveragrand.com%2fwp-content%2fuploads%2f2019%2f11%2fParty-hall-1.jpg&ehk=MOEHG8s8yCGJ4qnLmvquA74IVT1YNylHmLKt%2fFPwA64%3d&risl=&pid=ImgRaw&r=0" alt=""
+    class="front-img w-100" height="800">
+
+<div class="landing-pg-card p-0 d-flex flex-column flex-wrap align-items-center " id="planning" (planning)="scrollToPlanning()">
+    <h1 class="px-4 pt-3 m-0">Welcome to The PARTY Company</h1>
+    <hr class="2px p-0 m-0 w-75 my-2">
+    <p class="px-4">Book the perfect party hall for your next event!</p>
+    
+    <form action="/search" class="d-flex flex-column flex-wrap justify-content-center w-75 mb-2 pe-2">
+        <div class="guests d-flex flex-row py-3 justify-content-between">
+            <label class="" for="location">Location:</label>
+            <input class="box w-50" type="text" id="location" name="location" placeholder=" City   ex: Lucknow">
+        </div>
+        <div class="guests d-flex flex-row pb-3 justify-content-between">
+            <label for="date">Date:</label>
+            <input class="box w-50" type="date" id="date" name="date">
+        </div>
+        <div class="guests d-flex flex-row justify-content-between">
+            <label class="me-2" for="guests">No. of Guests:</label>
+            <input class="box w-50" type="number" id="guests" name="guests" min="50"  placeholder="100-200">
+        </div>
+        <button class="btn booking-btn w-25 my-4" type="submit">Search</button>
+    </form>
+</div>
+<div style="height:450px"></div>
+<app-list-venues></app-list-venues>
+</div>
+<!-- <div class="h-25"></div> -->

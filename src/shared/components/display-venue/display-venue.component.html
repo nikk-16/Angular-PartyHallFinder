@@ -1,0 +1,334 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="position-relative mb-4" style="top: 0%;">
+    <div class="bg-light d-flex justify-content-center mb-5">
+        <div id="carouselExampleAutoplaying" class="carousel slide w-75" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img [src]=partyHall.images[0]! class="d-block w-100" alt="..." width="900" height="700"
+                        style="min-width: 700px;">
+                </div>
+                <div class="carousel-item">
+                    <img [src]=partyHall.images[1]! class="d-block w-100" alt="..." width="900" height="700"
+                        style="min-width: 700px;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container my-5 d-flex flex-row flex-wrap justify-content-between">
+        <div class=" w-50 m-2 d-flex flex-column">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p class="card-title mt-2 fs-2">{{partyHall.partyHallName}}</p>
+                    <!-- <p class="card-text fs-5">Ratings: {{partyHall.ratings}}</p> -->
+                    <p class="card-text fs-5">Ratings:
+                        <ngb-rating class="mt-3" [max]="5" [(rate)]="partyHall.ratings" [readonly]="true"></ngb-rating>
+                    </p>
+                </div>
+                <div>
+                    Share:
+                    <ul class="d-flex list-style-none gap-2 ms-0 ps-0">
+                        <li class="list-group-item">
+                            <a (click)="shareOnFacebook()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                                    class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a (click)="shareOnPinterest()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                                    class="bi bi-pinterest" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0z" />
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a (click)="shareOnGoogle()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                                    class="bi bi-google" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a (click)="shareOnTwitter()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                                    class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="w">
+            <div class="my-4 d-flex justify-content-between mx-2">
+                <p class="card-text fs-4">Prices: <img width="25" height="25"
+                        src="https://img.icons8.com/material-rounded/240/rupee.png"
+                        alt="rupee--v1" />{{partyHall.prices}}</p>
+                <p class="card-text fs-5 me-5">Capacity: {{partyHall.capacity}}</p>
+            </div>
+            <p class="card-text fs-6 me-4">Address: {{partyHall.street}}, {{partyHall.city}}, {{partyHall.state}}-{{partyHall.pincode}}    &nbsp; &nbsp; (Find on map below)</p>
+            <div class=" card container pt-3">
+                <p class="fs-4">Features</p>
+                <hr class="w-100">
+                <p class="fs-6">Amenities</p>
+                <div class="d-flex flex-row justify-content-around flex-wrap">
+                    <div *ngIf="partyHall.features.lawn" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/external-outline-berkahicon/512/external-Lawn-Care-lawn-care-outline-berkahicon-3.png"
+                            alt="external-Lawn-Care-lawn-care-outline-berkahicon-3" />
+                        <p class="mx-2">Lawn</p>
+                    </div>
+                    <div *ngIf="partyHall.features.hall" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/small/512/city-hall.png" />
+                        <p class="mx-2">Hall</p>
+                    </div>
+                    <div *ngIf="partyHall.features.conferenceRoom" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/ios/512/meeting-room.png" />
+                        <p class="mx-2">Conference Room</p>
+                    </div>
+                    <div *ngIf="partyHall.features.poolSide" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/ios-filled/500/outdoor-swimming-pool.png" />
+                        <p class="mx-2">Pool Side</p>
+                    </div>
+                    <div *ngIf="partyHall.features.garden" class=" d-flex flex-row ">
+                        <img width="16" height="16" src="https://img.icons8.com/windows/512/house-with-a-garden.png" />
+                        <p class="mx-2">Garden</p>
+                    </div>
+                </div>
+
+
+                <hr class="w-100">
+                <p class="fs-6">Food </p>
+                <div class="d-flex flex-row justify-content-around ">
+                    <div *ngIf="partyHall.features.veg" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/fluency/240/vegetarian-food-symbol.png" />
+                        <p class="mx-2">Veg: <img width="16" height="16"
+                                src="https://img.icons8.com/material-rounded/240/rupee.png" alt="rupee" />
+                            {{partyHall.features.veg}}</p>
+                    </div>
+                    <div *ngIf="partyHall.features.nonVeg" class=" d-flex flex-row ">
+                        <img width="16" height="16"
+                            src="https://img.icons8.com/fluency/240/non-vegetarian-food-symbol.png" />
+                        <p class="mx-2">Non-Veg: <img width="16" height="16"
+                                src="https://img.icons8.com/material-rounded/240/rupee.png" alt="rupee" />
+                            {{partyHall.features.nonVeg}}</p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class=" card px-5 py-5 rounded shadow d-flex flex-column  align-items-center"
+            style="margin-top: -15%; height: fit-content;">
+            <div>
+                <p class="fw-bold">Check Availabile Dates: </p>
+                <ejs-calendar [value]='dateValue' (renderDayCell)='disabledDate($event)' class="rounded-4"
+                    (change)="onChange($event)"></ejs-calendar>
+
+            </div>
+            <button class="btn booking-btn mt-3 py-2 rounded-5 w-75" type="submit" (click)="scroll()">Proceed to Book
+                Hall</button>
+        </div>
+        <div class="container d-flex flex-row flex-wrap align-items- justify-content-end">
+            <h2>Please Rate Us: &nbsp;</h2>
+            <ngb-rating [(ngModel)]="starRating" (ngModelChange)="submitRating()" class="pt-1" [max]="5"
+                [(rate)]="starRating" [readonly]="false"></ngb-rating>
+        </div>
+        <div>
+        <p class="fs-4 ms-4">Find us on Map: </p>
+        <div
+            class="map-container  d-flex flex-column flex-wrap align-items-center justify-content-center p-3">
+            <div class="map-frame">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+        <div
+            class="container my-5 w-50 d-flex flex-column flex-wrap align-items-center justify-content-center rounded-5 shadow p-3">
+            <form (ngSubmit)="submitReview()">
+                <h2>Have Something that we can improve? Review Us! &nbsp;</h2>
+                <div class="d-flex flex-row flex-wrap align-items- justify-content-around">
+                    <input type="text" [formControl]="reviewForm" class="rounded-5 mx-3 px-4"
+                        style="height: 50px; width: 80%;" placeholder="Type Something here...">
+                    <button type="submit" class="btn btn-tertiary rounded-5 shadow"><img width="22" height="22"
+                            src="https://img.icons8.com/ios/100/sent--v1.png" alt="sent--v1" /></button>
+                </div>
+            </form>
+            <!-- <ngb-rating class="pt-1" [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating> -->
+        </div>
+
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d121810.13029836288!2d78.49246720000001!3d17.432575999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1700412863750!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrad"></iframe> -->
+        <!-- <iframe src="https://www.google.com/maps/embed/v1/place?key=<YOUR API KEY>&q=71.0378379,-110.05995059999998"></iframe> -->
+
+
+        <!-- <iframe [src]="src" width="800" height="600" frameborder="0" style="border:0"></iframe> -->
+        <!-- <div class="mapouter">
+                <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
+                    marginheight="0" marginwidth="0"
+                    [src]="src"></iframe><a
+                    href="https://embed-googlemap.com">embed google maps</a></div>
+                    
+                </div> -->
+
+    </div>
+
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="mb-3">See top user reviews for us: </h2>
+                </div>
+                <div class="col-6 text-right">
+                    <a class="btn btn-tertiary mb-3 me-2" *ngIf="reviews[3]"
+                        data-bs-target="#carouselExampleIndicators2" role="button" data-slide="prev"
+                        data-bs-slide="prev">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                    <a class="btn btn-tertiary mb-3 " *ngIf="reviews[3]" data-bs-target="#carouselExampleIndicators2"
+                        role="button" data-bs-slide="next">
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[0].reviewText ">
+                                        <app-review-card [review]="reviews[0]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <app-review-card [review]="reviews[1]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[2] && reviews[2].reviewText">
+                                        <app-review-card [review]="reviews[2]"></app-review-card>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[3] && reviews[3].reviewText">
+                                        <app-review-card [review]="reviews[3]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[4] && reviews[4].reviewText">
+                                        <app-review-card [review]="reviews[4]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[5] && reviews[5].reviewText">
+                                        <app-review-card [review]="reviews[5]"></app-review-card>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[6] && reviews[6].reviewText">
+                                        <app-review-card [review]="reviews[6]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[7] && reviews[7].reviewText">
+                                        <app-review-card [review]="reviews[7]"></app-review-card>
+                                    </div>
+                                    <div class="col-md-4 mb-3" *ngIf="reviews[8] && reviews[8].reviewText">
+                                        <app-review-card [review]="reviews[8]"></app-review-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div id="form"
+        class="form form-control w-50 d-flex flex-row align-items-center  justify-content-between container my-5 p-4">
+        <form [formGroup]="bookingForm" class=" w-100 d-flex  flex-column ">
+            <h1>Complete Your Booking:</h1>
+            <div class="mb-3 me-0 d-flex flex-row align-items-center">
+                <div class="w-50 d-flex flex-row justify-content-between align-items-center">
+                    <label for="firstName" class="form-label m-0 w-50">First Name:</label>
+                    <input type="firstName" class="form-control me-5" id="firstName" formControlName="firstName"
+                        aria-describedby="nameHelp">
+                </div>
+                <div class="w-50 d-flex flex-row justify-content-between align-items-center">
+                    <label for="lastName" class="form-label m-0 w-50">Last Name:</label>
+                    <input type="lastName" class="form-control" id="lastName" formControlName="lastName"
+                        aria-describedby="nameHelp">
+                </div>
+
+            </div>
+            <div class="mb-3 d-flex flex-row align-items-center ">
+                <div class="w-50 d-flex flex-row justify-content-betwee align-items-center">
+                    <label for="phone" class="form-label m-0 w-50">Contact:</label>
+                    <input type="tel" class="form-control  me-5" id="phone" formControlName="phone" name="phone"
+                        aria-describedby="nameHelp" placeholder="1234567890" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                        value="">
+                </div>
+                <div class="w-50 d-flex flex-row justify-content-between align-items-center">
+                    <label for="date" class="form-label  w-50">Booking Date:</label>
+                    <!-- <input type="date" class="form-control" id="lastName" formControlName="date"
+                    aria-describedby="nameHelp"> -->
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+                        Popover on bottom
+                      </button> -->
+                    <button class="btn booking-btn p-1 w-50 " type="!submit" style="font-size: small;"
+                        (click)="showCalendar = !showCalendar">Select Date</button>
+                    <div class="m-0 p-0 calendar" style="z-index: 4; position: absolute; bottom: -7%; left: 60%;"
+                        *ngIf="showCalendar">
+                        <ejs-calendar [value]='dateValue' (renderDayCell)='disabledDate($event)'
+                            (change)="onChange($event)"></ejs-calendar>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mb-3 d-flex flex-row align-items-center">
+                <div class="w-50 d-flex flex-row justify-content-between align-items-center">
+                    <label for="exampleInputEmail1" class="form-label m-0 w-50">Email address:</label>
+                    <input type="email" class="form-control me-5" id="exampleInputEmail1" formControlName="email"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="w-50 d-flex flex-row justify-content-between align-items-center">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    <label for="guests" class="form-label m-0 w-50">Guests:</label>
+                    <input type="number" class="form-control " id="guests" formControlName="guests"
+                        aria-describedby="guestsHelp">
+                </div>
+            </div>
+            <button [disabled]="bookingForm.invalid" type="submit" class="btn booking-btn fw-bold w-25"
+                (click)="createRzpayOrder()">Proceed To Payment</button>
+        </form>
+    </div>
+</div>

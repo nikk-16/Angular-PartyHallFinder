@@ -1,0 +1,15 @@
+<div style="padding-top: 15%;">
+    <div *ngIf="!toShow">Oops! {{user.firstName}} you have no bookings!</div>
+    <div *ngIf="toShow">
+        <div class="container">
+            <div class="row d-flex flex-column align-items-center">
+                <div class="col-md-9 ">
+                    <h1>Manage Your Bookings here:</h1>
+                    <div class="main-timeline" *ngFor="let booking of hallIds">
+                        <app-user-booking-card [bookingId]="booking"></app-user-booking-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<main class="container w-75 m-5">
+    <p class=" pt-5"></p>   
+    <div class="card d-flex flex-column align-items-start justify-content-around">
+        <div class="bg-light d-flex justify-content-center mb-5">
+            <div id="carouselExampleAutoplaying" class="carousel slide w-75" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img [src]="partyHall.images[0]" class="d-bloc" alt="..." width="900" height="700">
+                    </div>
+                    <div class="carousel-item">
+                        <img [src]="partyHall.images[1]" class="d-block" alt="..." width="900" height="700">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="container my-5">
+            <p class="card-title mt-2 fs-2">{{partyHall.partyHallName}}</p>
+            <p class="card-text">Ratings: {{partyHall.ratings}}</p>
+            <hr class="w">
+            <p class="card-text">Prices: {{partyHall.prices}}</p>
+            <p class="card-text">Capacity: {{partyHall.capacity}}</p>
+        </div>
+        <div class="container mat-elevation-z8 w-75">
+            <h1 class="m-3">Bookings</h1>
+            <hr class="m-0">
+            <!-- <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field> -->
+            <mat-table #table [dataSource]="dataSource">
+                <ng-container matColumnDef="userId">
+                  <mat-header-cell *matHeaderCellDef>USER ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                  <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+
+        </div>
+    </div>
+</main>

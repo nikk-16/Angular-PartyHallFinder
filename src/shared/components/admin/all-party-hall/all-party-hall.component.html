@@ -1,0 +1,57 @@
+
+
+<main class="container main w-100 m-5">
+    <!-- <app-topbar></app-topbar> -->
+    <div class="d-flex flex-row align-items-center justify-content-between m-5 pt-5 w-75">
+        <!-- <h1 class="m-0 col-8">Welcome, {{admin.firstName}}</h1> -->
+        <!-- <button class="btn booking-btn mt-4" style="width: 15%; height: 5%;" type="submit" (click)="addPartyHall()">Add
+            Venue</button> -->
+    </div>
+    <h1 class="h3 mb-3"><strong>These are the Listed Party Halls with you.</strong></h1>
+    <div class="row">
+        <div class="col-xl-12 col-xxl-9 d-flex">
+            <div class="w-100">
+                <div class="row row-cols-15 border-3 shadow py-3">
+                    <div class="container container-fluid ">
+                        <h1 class="m-3">PartyHalls</h1>
+                        <hr class="m-0">
+                        <mat-table #table [dataSource]="dataSource">
+                            <ng-container matColumnDef="ownerId">
+                                <mat-header-cell *matHeaderCellDef>ownerId</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.ownerId}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="partyHallName">
+                                <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.partyHallName}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="street">
+                                <mat-header-cell *matHeaderCellDef>Location</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.street}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="city">
+                                <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="prices">
+                                <mat-header-cell *matHeaderCellDef>Prices</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.prices}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="capacity">
+                                <mat-header-cell *matHeaderCellDef>Capacity</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="bookings">
+                                <mat-header-cell *matHeaderCellDef>Total Amount</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.bookings[0].total}} </mat-cell>
+                            </ng-container>
+                        
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</main>

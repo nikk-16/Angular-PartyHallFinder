@@ -1,0 +1,27 @@
+<div class="body d-flex flex-column justify-content-center align-items-center ">
+    <div class="d-flex flex-column justify-content-center align-items-center cards mt-5">
+        <h1>Login As: </h1>
+        <div class="d-flex flex-row container align-items-center flex-wrap  justify-content-center">
+            <mat-card class="m-5 d-flex flex-column align-items-center justify-content-center py-5"
+                style="width: 300px;">
+                <mat-card-title> Here for PartyHall Bookings? </mat-card-title>
+                <img width="75%" src="https://img.icons8.com/bubbles/500/find-user-male.png" alt="find-user-male" />
+                <button mat-button class="btn login-btn w-25" (click)="loginAsUser()">Login</button>
+            </mat-card>
+            <mat-card class="m-5  d-flex flex-column align-items-center justify-content-center py-5"
+                style="width: 300px;">
+                <mat-card-title> Are you a Vendor? </mat-card-title>
+                <img width="75%" src="https://img.icons8.com/bubbles/500/administrator-male.png"
+                    alt="administrator-male" />
+                <button mat-button class="btn login-btn w-25" (click)="loginAsVendor()">Login</button>
+            </mat-card>
+            <mat-card class="m-5 d-flex flex-column align-items-center justify-content-center py-5"
+                style="width: 300px;">
+                <mat-card-title> Admin </mat-card-title>
+                <img width="75%" src="https://img.icons8.com/bubbles/500/system-administrator-male.png"
+                    alt="system-administrator-male" />
+                <button mat-button class="btn login-btn w-25 mx-5" (click)="loginAsAdmin()">Login</button>
+            </mat-card>
+        </div>
+    </div>
+</div>

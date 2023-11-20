@@ -1,0 +1,97 @@
+<form [formGroup]="updateform" (ngSubmit)="editHall()" class="m-5">
+    <div class=" row m-5 " style="padding-top: 10%;">
+        <h1>Edit Hall Details:</h1>
+        <div class="col">
+            <!-- Name input -->
+            <div class="form-outline">
+                <input type="text" id="form8Example3" class="form-control" formControlName="partyHallName" />
+                <label class="form-label" for="form8Example3">Party Hall Name</label>
+            </div>
+        </div>
+        <div class="col">
+            <!-- Name input -->
+            <div class="form-outline">
+                <input type="number" id="form8Example4" class="form-control" formControlName="capacity" />
+                <label class="form-label" for="form8Example4">Capacity</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="email" id="form8Example5" class="form-control" formControlName="prices" />
+                <label class="form-label" for="form8Example5">Prices</label>
+            </div>
+        </div>
+        <hr>
+        <h3>Address</h3>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="street" />
+                <label class="form-label" for="form8Example5">Street</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="city" />
+                <label class="form-label" for="form8Example5">City</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form8Example5" class="form-control" formControlName="state" />
+                <label class="form-label" for="form8Example5">State</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" id="form8Example5" class="form-control" formControlName="pincode" />
+                <label class="form-label" for="form8Example5">Zip</label>
+            </div>
+        </div>
+        <hr>
+        <h3>Features</h3>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="Hall" value="Hall" formControlName="hall" />
+                <label class="form-label" for="Hall">Hall</label>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="Comference" value="Conference " formControlName="conferenceRoom" />
+                <label class="form-label" for="form8Example5">Conference Room</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Pool" formControlName="poolSide" />
+                <label class="form-label" for="form8Example5">Pool Side</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Lawn" formControlName="lawn" />
+                <label class="form-label" for="form8Example5">Lawn</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="checkbox" id="form8Example5" value="Garden" formControlName="garden" />
+                <label class="form-label" for="form8Example5">Garden</label>
+            </div>
+        </div>
+
+        <div class="col-4 d-flex flex-row">
+            <div class="form-outline mx-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="veg" />
+                <label class="form-label" for="form8Example5">Veg Prices</label>
+            </div>
+            <div class="form-outline mx-2">
+                <input type="number" id="form8Example5" class="form-control" formControlName="nonVeg" />
+                <label class="form-label" for="form8Example5">Non-veg Prices</label>
+            </div>
+        </div>
+        
+        <button class="btn booking-btn mt-2 p-1 col-1 mb-5" type="submit">Edit Hall</button>
+    </div>
+</form>

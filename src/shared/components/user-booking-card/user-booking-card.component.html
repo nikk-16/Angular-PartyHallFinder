@@ -1,0 +1,17 @@
+<!-- <p>user-booking-card works!</p> -->
+<div class="container my-4" style="width: 850px;">
+    
+    <div class="main-timeline card rounded-3 w-100">
+        <!-- <div class="timeline-icon"><i class="fa fa-globe"></i></div> -->
+        <div class="timeline-content d-flex flex-row flex-wrap w-100">
+            <img [src]="partyHall.images[0]" alt="" width="30%" style="border-radius: 3% 0px 0px 3%;">
+            <div class="crad-title d-flex flex-column flex-wrap justify-content-start align-items-start m-2 ms-4 "  style="width: 65%;">
+                <h2 class="fw-light">{{partyHall.partyHallName}}</h2>
+                <p>Address: {{partyHall.street}}, {{partyHall.city}}, {{partyHall.state}}-{{partyHall.pincode}}</p>
+                <hr class="" style="width: 100%">
+                <h2 class="title card-text ">Booking Id: {{booking.bookingId}}</h2>
+                <p>Booking Date:  <input class="box" type="date" [value]="booking.date"> </p>
+            </div>
+        </div>
+    </div>
+</div>

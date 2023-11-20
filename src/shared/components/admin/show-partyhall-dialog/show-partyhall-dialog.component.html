@@ -1,0 +1,15 @@
+<!-- <p>show-partyhall-dialog works!</p> -->
+<div class="container">
+    <div class="p-5">
+        <h1>Bookings made by {{data.firstName}}!</h1>
+        <h3 *ngIf="partyHallIds == null || partyHallIds.length == 0 || partyHallIds[0] == null"> This owner has no Party
+            Halls Listed with You!</h3>
+        <!-- <h4>Booking Id: {{element.element.bookedPartyHallIds}}</h4> -->
+        <div *ngIf="partyHallIds.length > 0 && partyHallIds != null && partyHallIds[0] != null">
+            <mat-list *ngFor="let booked of partyHallIds">
+                {{booked}} <button class="btn btn-primary" (click)="viewBooking()">View PartyHall</button>
+            </mat-list>
+        </div>
+        <button mat-button mat-dialog-close type="submit" class="btn btn-danger">Close</button>
+    </div>
+</div>
