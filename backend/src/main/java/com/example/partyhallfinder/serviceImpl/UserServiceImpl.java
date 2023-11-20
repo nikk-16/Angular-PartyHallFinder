@@ -8,7 +8,9 @@ import com.example.partyhallfinder.Models.Owner;
 import com.example.partyhallfinder.Models.User;
 import com.example.partyhallfinder.Repositories.UserRepository;
 import com.example.partyhallfinder.Services.UserService;
+import com.example.partyhallfinder.payload.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -20,13 +22,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final ModelMapper mapper;
     @Override
-    public User addUser(SignupDetails user) throws Exception {
+    public UserDto addUser(SignupDetails user) throws Exception {
         String tempEmailId = user.getEmail();
         if(tempEmailId != null && !"".equals(tempEmailId)) {
             Optional<User> userObj = userRepository.findByEmail(tempEmailId);
             if(userObj.isPresent()) {
-                System.out.println(userObj);
                 throw new Exception("User with "+tempEmailId+" is already exist");
             }
             else{
@@ -44,17 +46,16 @@ public class UserServiceImpl implements UserService {
                 userRepository.save(newUser);
             }
         }
-        return userRepository.findByEmail(user.getEmail()).get();
+        return mapper.map(userRepository.findByEmail(user.getEmail()).get(), UserDto.class);
     }
 
     @Override
-    public User signIn(Credentials credentials) throws NotFoundException, InvalidCredentialsException {
+    public UserDto signIn(Credentials credentials) throws NotFoundException, InvalidCredentialsException {
         String tempPassword = credentials.getPassword();
         String tempEmail = credentials.getEmail();
 
         User userObj=null;
         if(tempEmail!=null && tempPassword!=null) {
-            System.out.println(tempPassword +" "+ tempEmail);
             userObj = userRepository.findUserByEmail(tempEmail);
             if(userObj==null) {
                 throw new NotFoundException("doesn't Exists");
@@ -63,11 +64,11 @@ public class UserServiceImpl implements UserService {
                 throw new InvalidCredentialsException("Invalid password");
             }
         }
-        return userObj;
+        return mapper.map(userObj, UserDto.class);
     }
 
     @Override
-    public Optional<User> update(String id, User user) throws Exception {
+    public UserDto update(String id, User user) throws Exception, NotFoundException {
         Optional<User> tempUser = userRepository.findById(id);
         if(tempUser.isPresent()){
             User tUser = tempUser.get();
@@ -83,7 +84,8 @@ public class UserServiceImpl implements UserService {
             tUser.setImg(user.getImg());
             userRepository.save(tUser);
         }
-        return userRepository.findById(id);
+        if(tempUser.isEmpty()) throw new NotFoundException();
+        return mapper.map(userRepository.findById(id).get(), UserDto.class);
     }
 
     @Override
@@ -93,8 +95,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAll() throws Exception {
-        return userRepository.findAll();
+    public List<UserDto> getAll() throws Exception {
+        List<UserDto> ls = new ArrayList<>();
+        for(User u: userRepository.findAll()){
+            ls.add(mapper.map(u, UserDto.class));
+        }
+        return ls;
     }
 
     @Override
@@ -105,14 +111,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public String updateViewingId(String userId, String id) {
         User user = userRepository.findById(userId).get();
-        System.out.println(user);
         user.setViewingId(id);
         userRepository.save(user);
         return "added";
     }
 
     @Override
-    public User getUser(String id) {
-        return userRepository.findById(id).get();
+    public UserDto getUser(String id) {
+        return mapper.map(userRepository.findById(id).get(), UserDto.class);
     }
 }

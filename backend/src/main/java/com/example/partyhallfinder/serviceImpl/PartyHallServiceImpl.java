@@ -58,7 +58,6 @@ public class PartyHallServiceImpl implements PartyHallService {
             ft.setPoolSide(partyHall.isPoolSide());
             ft.setConferenceRoom(partyHall.isConferenceRoom());
             tPartyHall.setFeatures(ft);
-            System.out.println(tPartyHall.getFeatures());
             tPartyHall.setCapacity(partyHall.getCapacity());
 
             List<String> imgs = new ArrayList<>();
@@ -72,10 +71,8 @@ public class PartyHallServiceImpl implements PartyHallService {
 
         String tempPartyHallId = partyHallRepository.getByPartyHallName(partyHall.getPartyHallName()).get(0).getPartyHallId();
             Optional<Owner> update = ownerRepository.findById(ownerId);
-            System.out.println(update);
             if(update.isPresent()) {
                 Owner upd = update.get();
-//                System.out.println("upd"+ upd);
                 if(upd.getPartyHallIds() == null){
                     upd.setPartyHallIds(new ArrayList<String>());
                 }
@@ -118,7 +115,6 @@ public class PartyHallServiceImpl implements PartyHallService {
         if(res.isPresent()) {
             Owner owner = res.get();
             List<String> partyHallList = owner.getPartyHallIds();
-            System.out.println(partyHallList);
             for(String e: partyHallList){
                 if(e != null) {
                     Optional<PartyHall> partyHall = partyHallRepository.findById(e);
@@ -133,7 +129,7 @@ public class PartyHallServiceImpl implements PartyHallService {
     }
 
     @Override
-    public Optional<PartyHall> update(String id, AddPartyHallData partyHall) {
+    public PartyHall update(String id, AddPartyHallData partyHall) {
         Optional<PartyHall> tempPartyHall = partyHallRepository.findById(id);
         if(tempPartyHall.isPresent()){
             PartyHall tPartyHall = tempPartyHall.get();
@@ -159,7 +155,7 @@ public class PartyHallServiceImpl implements PartyHallService {
 
             partyHallRepository.save(tPartyHall);
         }
-        return partyHallRepository.findById(id);
+        return partyHallRepository.findById(id).get();
     }
 
     @Override
@@ -213,8 +209,8 @@ public class PartyHallServiceImpl implements PartyHallService {
         PartyHall tempPartyHall = partyHallRepository.findById(partyHallId).get();
         tempPartyHall.setRatings((tempPartyHall.getRatings()+rating)/2);
 
-        Reviews review = reviewsRepository.findByUserIdAndPartyHallId(userId, partyHallId);
-        System.out.println(review);
+        Reviews review = reviewsRepository.findByUserIdAndPartyHallId(userId, partyHallId).get(0);
+
         if(review == null){
             review = new Reviews();
             review.setUserId(userId);

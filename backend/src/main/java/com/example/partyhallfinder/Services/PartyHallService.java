@@ -17,7 +17,7 @@ public interface PartyHallService {
     public String deletePartyHall(String partyHallId, String ownerId) throws Exception;
     public List<PartyHall> getPartyHallsByOwner(String ownerId) throws Exception;
 
-    Optional<PartyHall> update(String id, AddPartyHallData partyHall);
+    PartyHall update(String id, AddPartyHallData partyHall);
 
     Optional<PartyHall> updateImages(String id, PartyHall partyHall, String image, String work);
 

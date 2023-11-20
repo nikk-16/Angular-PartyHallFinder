@@ -38,8 +38,8 @@ public class PartyHallController {
     public ResponseEntity<String> deletePartyHall(@PathVariable String ownerId, @PathVariable String partyHallId) throws Exception{
         return ResponseEntity.ok(partyHallServiceImpl.deletePartyHall(partyHallId, ownerId));
     }
-    @PutMapping(path = "/update/{id}")
-    public ResponseEntity<Optional<PartyHall>> updatePartyHall(@PathVariable String id, @RequestBody AddPartyHallData partyHall)  {
+    @PostMapping(path = "/update/{id}")
+    public ResponseEntity<PartyHall> updatePartyHall(@PathVariable String id, @RequestBody AddPartyHallData partyHall)  {
         return ResponseEntity.ok(partyHallServiceImpl.update(id, partyHall));
     }
     @PutMapping(path = "/updateImages/{id}")

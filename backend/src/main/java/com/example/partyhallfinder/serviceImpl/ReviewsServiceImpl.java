@@ -3,7 +3,9 @@ package com.example.partyhallfinder.serviceImpl;
 import com.example.partyhallfinder.Models.Reviews;
 import com.example.partyhallfinder.Repositories.ReviewsReposirtory;
 import com.example.partyhallfinder.Services.ReviewsService;
+import com.example.partyhallfinder.payload.ReviewsDto;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,16 +14,15 @@ import java.util.*;
 @RequiredArgsConstructor
 public class ReviewsServiceImpl implements ReviewsService {
     private final ReviewsReposirtory reviewsRepository;
-    public Reviews addReview(Reviews reviews) {
-        System.out.print(reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId()) == null ?"true":"false");
+    private final ModelMapper mapper;
+    public ReviewsDto addReview(Reviews reviews) {
         Reviews review;
-        if(reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId()) != null) {
-            review = reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId());
+        if(!reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId()).isEmpty()) {
+            review = reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId()).get(0);
         }
         else{
             review = new Reviews();
         }
-            System.out.println(review);
             if (review != null) {
                 review.setUserId(reviews.getUserId());
                 review.setPartyHallId(reviews.getPartyHallId());
@@ -33,24 +34,36 @@ public class ReviewsServiceImpl implements ReviewsService {
                 reviewsRepository.save(review);
             } else reviewsRepository.save(reviews);
 
-        return reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId());
+        return mapper.map(reviewsRepository.findByUserIdAndPartyHallId(reviews.getUserId(), reviews.getPartyHallId()).get(0), ReviewsDto.class);
     }
-    public List<Reviews> getReviewsByPartyHallId(String partyHallId){
-        return reviewsRepository.findByPartyHallId(partyHallId);
-    }
-
-    @Override
-    public Reviews getById(String id) {
-        return reviewsRepository.findById(id).get();
-    }
-
-    @Override
-    public List<Reviews> getByUserId(String id) {
-        return reviewsRepository.findByUserId(id);
+    public List<ReviewsDto> getReviewsByPartyHallId(String partyHallId){
+        List<ReviewsDto> dto = new ArrayList<>();
+        for(Reviews r: reviewsRepository.findByPartyHallId(partyHallId)){
+            dto.add(mapper.map(r, ReviewsDto.class));
+        }
+        return dto;
     }
 
     @Override
-    public List<Reviews> getAll() {
-        return reviewsRepository.findAll();
+    public ReviewsDto getById(String id) {
+        return mapper.map(reviewsRepository.findById(id).get(), ReviewsDto.class);
+    }
+
+    @Override
+    public List<ReviewsDto> getByUserId(String id) {
+        List<ReviewsDto> dto = new ArrayList<>();
+        for(Reviews r: reviewsRepository.findByUserId(id)){
+            dto.add(mapper.map(r, ReviewsDto.class));
+        }
+        return dto;
+    }
+
+    @Override
+    public List<ReviewsDto> getAll() {
+        List<ReviewsDto> dto = new ArrayList<>();
+        for(Reviews r: reviewsRepository.findAll()){
+            dto.add(mapper.map(r, ReviewsDto.class));
+        }
+        return dto;
     }
 }

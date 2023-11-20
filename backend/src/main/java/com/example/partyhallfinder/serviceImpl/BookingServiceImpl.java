@@ -1,6 +1,7 @@
 package com.example.partyhallfinder.serviceImpl;
 
 import com.example.partyhallfinder.Components.BookedDates;
+import com.example.partyhallfinder.Exception.NotFoundException;
 import com.example.partyhallfinder.Models.Booking;
 import com.example.partyhallfinder.Models.Owner;
 import com.example.partyhallfinder.Models.PartyHall;
@@ -10,7 +11,9 @@ import com.example.partyhallfinder.Repositories.OwnerRepository;
 import com.example.partyhallfinder.Repositories.PartyHallRepository;
 import com.example.partyhallfinder.Repositories.UserRepository;
 import com.example.partyhallfinder.Services.BookingService;
+import com.example.partyhallfinder.payload.BookingDto;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Book;
@@ -25,8 +28,9 @@ public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
     private  final PartyHallRepository partyHallRepository;
     private  final UserRepository userRepository;
+    private final ModelMapper mapper;
 
-    public Optional<Booking> bookHall(Booking booking){
+    public BookingDto bookHall(Booking booking){
         bookingRepository.save(booking);
         Optional<PartyHall> partyHall = partyHallRepository.findById(booking.getPartyHallId());
         if(partyHall.isPresent()){
@@ -64,26 +68,49 @@ public class BookingServiceImpl implements BookingService {
             tempUser.setBookedPartyHallIds(bookedPartyHalls);
             userRepository.save(tempUser);
         }
-        return bookingRepository.findById(booking.getBookingId());
+
+        return mapper.map(bookingRepository.findById(booking.getBookingId()).get(), BookingDto.class);
     }
 
     @Override
-    public Booking getBookingById(String id) {
-        System.out.println(bookingRepository.findById(id).get());
-        return bookingRepository.findById(id).get();
+    public BookingDto getBookingById(String id) throws Exception {
+        Booking booked;
+        try{
+            booked = bookingRepository.findById(id).get();
+            if(booked == null){
+                throw new NotFoundException("No BookingDto by this Id");
+            }
+            } catch(Exception ex){
+                    throw new Exception(ex);
+            }
+        BookingDto booking = new BookingDto();
+
+        return mapper.map(bookingRepository.findById(id).get(), BookingDto.class);
     }
 
-    public List<Booking> getBookingsByUserId(String userId) {
-        return bookingRepository.findBookingsByUserId(userId);
+    public List<BookingDto> getBookingsByUserId(String userId) {
+        List<BookingDto> dto = new ArrayList<>();
+        for(Booking b: bookingRepository.findBookingsByUserId(userId)){
+            dto.add(mapper.map(b, BookingDto.class));
+        }
+        return dto;
     }
 
     @Override
-    public List<Booking> getBookingsByPartyHallId(String partyHallId) {
-        return bookingRepository.findBookingsByPartyHallId(partyHallId);
+    public List<BookingDto> getBookingsByPartyHallId(String partyHallId) {
+        List<BookingDto> dto = new ArrayList<>();
+        for(Booking b: bookingRepository.findBookingsByPartyHallId(partyHallId)){
+            dto.add(mapper.map(b, BookingDto.class));
+        }
+        return dto;
     }
 
     @Override
-    public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
+    public List<BookingDto> getAllBookings() {
+        List<BookingDto> dto = new ArrayList<>();
+        for(Booking b: bookingRepository.findAll()){
+            dto.add(mapper.map(b, BookingDto.class));
+        }
+        return dto;
     }
 }

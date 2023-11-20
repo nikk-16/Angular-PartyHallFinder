@@ -12,5 +12,5 @@ public interface ReviewsReposirtory extends MongoRepository<Reviews, String> {
 
     List<Reviews> findByUserId(String id);
 
-    Reviews findByUserIdAndPartyHallId(String partyHallId, String userId);
+    List<Reviews> findByUserIdAndPartyHallId(String partyHallId, String userId);
 }

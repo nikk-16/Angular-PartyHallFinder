@@ -5,10 +5,11 @@ import com.example.partyhallfinder.Components.SignupDetails;
 import com.example.partyhallfinder.Exception.InvalidCredentialsException;
 import com.example.partyhallfinder.Exception.NotFoundException;
 import com.example.partyhallfinder.Models.Admin;
+import com.example.partyhallfinder.payload.AdminDto;
 
 public interface AdminService {
-    Admin addAdmin(SignupDetails admin) throws Exception;
-    Admin signIn(Credentials credentials) throws NotFoundException, InvalidCredentialsException;
+    AdminDto addAdmin(SignupDetails admin) throws Exception;
+    AdminDto signIn(Credentials credentials) throws NotFoundException, InvalidCredentialsException;
 
-    Admin getAdminById(String id);
+    AdminDto getAdminById(String id);
 }

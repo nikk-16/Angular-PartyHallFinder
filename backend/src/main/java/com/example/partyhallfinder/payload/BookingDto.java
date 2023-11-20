@@ -1,15 +1,13 @@
-package com.example.partyhallfinder.Models;
+package com.example.partyhallfinder.payload;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 
-@Document(collection = "bookings")
 @Data
-public class Booking {
-    @Id
+public class BookingDto {
+
     private String bookingId;
     private String partyHallId;
     private String userId;

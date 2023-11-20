@@ -16,4 +16,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public String handleUserNotFoundException(AlreadyExistsException ex) {
         return ex.getMessage();
     }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public String handleInvalidCredentialsException(InvalidCredentialsException ex) { return ex.getMessage(); }
 }

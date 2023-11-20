@@ -80,7 +80,6 @@ public class OwnerServiceImpl implements OwnerService {
         String tempEmail = credentials.getEmail();
         Owner ownerObj=null;
         if(tempEmail!=null && tempPassword!=null) {
-            System.out.println(tempPassword +" "+ tempEmail);
             ownerObj = ownerRepository.findOwnerByEmail(tempEmail);
             if(ownerObj==null) {
                 throw new NotFoundException("doesn't Exists");
